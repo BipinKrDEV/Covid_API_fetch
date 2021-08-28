@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Covid-19 Count</h1>
+
+        <div class="main">
+
+            <div class="jh_cities">
+                <h2>Districts</h2>
+
+                <div class="inputCity">
+                    <i class='bx bx-search' style="color:blueviolet"></i>
+
+                    <input type="text" placeholder="" id="inputText">
+                    <label for="inputText" class="input_label" ">Search City</label>
+
+                </div>
+
+                <input type="button" value="search" onclick="send()" class="submit">
+            </div>
+
+            <div class="output">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total Cases</th>
+                            <th>Recovered</th>
+                            <th>Deaths</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr id="data">
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+
+<script src="main.js"></script>
+
+
+<script>
+    /*===== FOCUS =====*/
+        const inputs = document.querySelectorAll("#inputText")
+
+        /*=== Add focus ===*/
+        function addfocus() {
+            let parent = this.parentNode.parentNode
+            parent.classList.add("focus")
+        }
+
+        /*=== Remove focus ===*/
+        function remfocus() {
+            let parent = this.parentNode.parentNode
+            if (this.value == "") {
+                parent.classList.remove("focus")
+            }
+        }
+
+        /*=== To call function===*/
+        inputs.forEach(input => {
+            input.addEventListener("focus", addfocus)
+            input.addEventListener("blur", remfocus)
+        })
+
+</script>
+
+
+</html>
